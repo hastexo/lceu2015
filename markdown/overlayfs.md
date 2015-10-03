@@ -54,3 +54,53 @@ only the upperdir that the OverlayFS mount physically modifies.
 
 
 <iframe data-autoplay src="https://asciinema.org/api/asciicasts/0m3ox7hteicnxmf6woys1o4h8?speed=2&amp;size=big&amp" id="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8" name="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8" scrolling="yes"></iframe>
+
+Note:
+- ls -lR lower, upper
+- mount -t overlayfs -o lowerdir=$PWD/lower,upperdir=$PWD/upper,workdir=$PWD/work none $PWD/overlay
+- Explain contents
+- cd overlay
+- mkdir blatch
+- touch blatch/blatchfile
+- echo hello > bar/barfile
+- ls -lR lower, upper, overlay
+- umount overlayfs
+- Clean out upper
+- Mount overlayfs from /
+- ls overlay
+- chroot overlay
+- ls
+- ls /tmp
+- ls /root
+- cd ..
+- mkdir upper/{root,tmp}
+- setfattr -n trusted.overlay.opaque -v y upper/{root,tmp}
+- mount -o remount $PWD/overlay
+- chroot again
+- ps -AHfww
+- netstat -lntp
+- exit
+- lxc-start -n bash -d
+- lxc-attach -n bash
+- ps -AHfww
+- netstat -lntp
+
+
+# How
+does this
+# help
+with application containers?
+
+Note: So this means that on any host we can have our host filesystem
+as the template for any number of containers using the same
+OS. Anything that is installed on the host, all containers inherit,
+but they all only run exactly the services they need. And if there is
+any piece of software that we need to update, we just do so on our
+host, and as soon as we remount the overlays and restart each
+container, it is immediately updated.
+
+But that still leaves us with two problems:
+- We have a window of undefined behavior while the upgrade is underway
+  and containers are still running.
+- Having to do this manually doesn't scale; we have to find an
+  appropriate means of automating it.
