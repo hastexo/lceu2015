@@ -72,7 +72,11 @@ node. So the `Pre-Invoke` check would have to be a little more
 involved.
 
 
-<iframe data-autoplay src="https://asciinema.org/api/asciicasts/27228?size=big" id="asciicast-iframe-27228" name="asciicast-iframe-27228" scrolling="yes"></iframe>
+<iframe data-autoplay
+	src="https://asciinema.org/api/asciicasts/27228?size=big"
+	id="asciicast-iframe-27228"
+	name="asciicast-iframe-27228"
+	scrolling="yes"></iframe>
 
 Note: This is a simple failover. We just put one node in standby,
 watch what it's doing, and taking it out of standby again.

@@ -53,7 +53,11 @@ What this means is that our template lowerdir stays pristine, it is
 only the upperdir that the OverlayFS mount physically modifies.
 
 
-<iframe data-autoplay src="https://asciinema.org/api/asciicasts/0m3ox7hteicnxmf6woys1o4h8?speed=2&amp;size=big&amp" id="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8" name="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8" scrolling="yes"></iframe>
+<iframe data-autoplay
+	src="https://asciinema.org/api/asciicasts/0m3ox7hteicnxmf6woys1o4h8?speed=1&amp;size=big&amp"
+	id="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8"
+	name="asciicast-iframe-0m3ox7hteicnxmf6woys1o4h8"
+	scrolling="yes"></iframe>
 
 Note:
 - ls -lR lower, upper
