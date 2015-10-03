@@ -30,4 +30,4 @@ DRBD
 <!-- .slide: data-background-image="images/stack.svg" data-background-size="contain" -->
 
 
-<!-- .slide: data-background-iframe="http://localhost:4200/" data-background-size="contain" -->
+<iframe data-autoplay src="https://asciinema.org/api/asciicasts/27228?size=big" id="asciicast-iframe-27228" name="asciicast-iframe-27228" scrolling="yes"></iframe>
